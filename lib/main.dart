@@ -1,115 +1,512 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-void main() {
-  runApp(const MyApp());
+class Ui_5 extends StatefulWidget {
+  Ui_5({Key? key}) : super(key: key);
+  @override
+  State<Ui_5> createState() => _Ui_5State();
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
+class _Ui_5State extends State<Ui_5> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+      backgroundColor: Colors.grey.shade200,
+      body: SafeArea(
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height / 2 - 50,
+              width: MediaQuery.of(context).size.width,
+              child: Stack(
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height / 3,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(70),
+                          bottomRight: Radius.circular(70),
+                        ),
+                        image: DecorationImage(
+                            image: AssetImage("assets/bg.jpg"),
+                            fit: BoxFit.cover)),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                                padding: EdgeInsets.only(left: 20, top: 20),
+                                child: IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.arrow_back_ios,
+                                      color: Colors.white70,
+                                    ))),
+                            Container(
+                                padding: EdgeInsets.only(right: 20, top: 20),
+                                child: CircleAvatar(
+                                  maxRadius: 20,
+                                  backgroundColor:
+                                      Colors.white60.withOpacity(0.4),
+                                  child: Icon(
+                                    Icons.favorite_outlined,
+                                    color: Colors.white,
+                                  ),
+                                ))
+                          ],
+                        ),
+                        Container(
+                            padding: EdgeInsets.only(top: 20),
+                            child: Center(
+                              child: CircleAvatar(
+                                maxRadius: 25,
+                                backgroundColor: Colors.white.withOpacity(0.5),
+                                child: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.play_arrow,
+                                    color: Colors.white,
+                                    size: 26,
+                                  ),
+                                ),
+                              ),
+                            )),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 16,
+                        ),
+                        Container(
+                            alignment: Alignment.centerLeft,
+                            padding: EdgeInsets.only(left: 35),
+                            child: Text(
+                              "Little Orpheus",
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white),
+                            )),
+                        Row(
+                          children: [
+                            Container(
+                                padding: EdgeInsets.only(left: 35, bottom: 10),
+                                child: Icon(
+                                  Icons.local_play_outlined,
+                                  color: Colors.white70,
+                                )),
+                            Container(
+                                padding: EdgeInsets.only(bottom: 10),
+                                child: Text(
+                                  "  by the Chinese room :  2m  34 s",
+                                  style: TextStyle(
+                                      fontSize: 13, color: Colors.white70),
+                                )),
+                            Container(
+                                padding: EdgeInsets.only(left: 140),
+                                child: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.more_vert_rounded,
+                                    color: Colors.white70,
+                                  ),
+                                )),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 20,
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 9,
+                        ),
+                        Container(
+                          height: MediaQuery.of(context).size.height / 8,
+                          width: MediaQuery.of(context).size.width / 4,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.star_rate_rounded,
+                                  size: 25,
+                                  color: Colors.yellow,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "Rating",
+                                  style: TextStyle(fontWeight: FontWeight.w500),
+                                ),
+                              ),
+                              Text(
+                                "4.6 stars",
+                                style: TextStyle(color: Colors.grey),
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 40,
+                        ),
+                        Container(
+                          height: MediaQuery.of(context).size.height / 8,
+                          width: MediaQuery.of(context).size.width / 4,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.fiber_smart_record,
+                                  size: 25,
+                                  color: Colors.purple,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "Players",
+                                  style: TextStyle(fontWeight: FontWeight.w500),
+                                ),
+                              ),
+                              Text(
+                                "single",
+                                style: TextStyle(color: Colors.grey),
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 40,
+                        ),
+                        Container(
+                          height: MediaQuery.of(context).size.height / 8,
+                          width: MediaQuery.of(context).size.width / 4,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.circle_notifications,
+                                  size: 25,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "category",
+                                  style: TextStyle(fontWeight: FontWeight.w500),
+                                ),
+                              ),
+                              Text(
+                                "Aventure",
+                                style: TextStyle(color: Colors.grey),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            Container(
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(left: 40),
+                child: Text(
+                  "About",
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w700),
+                )),
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 70,
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height / 11,
+              width: MediaQuery.of(context).size.width / 1.5 + 65,
+              child: Column(
+                children: [
+                  // ignore: prefer_const_literals_to_create_immutables
+                  Row(
+                    children: [
+                      Text(
+                        "Come and a look at this 4 bedroom and 3 bath ranch with full basement.",
+                        style: TextStyle(fontSize: 13, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 160,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "Home also features living room on main level,eat in kitchen and all",
+                        style: TextStyle(fontSize: 13, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 160,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "three bedrooms.Super cut layout..Basement has unfinished laundry",
+                        style: TextStyle(fontSize: 13, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 160,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "room with tons of storage and partially finished rec room on other side...",
+                        style: TextStyle(fontSize: 13, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 160,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(left: 30),
+                child: ElevatedButton(
+                  style: flatButtonStyle,
+                  onPressed: () {},
+                  child: Text("Read more"),
+                )),
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 100,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                    padding: EdgeInsets.only(left: 30),
+                    child: Text(
+                      "Ratings",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    )),
+                Container(
+                    padding: EdgeInsets.only(right: 20),
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text("See all"),
+                    )),
+              ],
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height / 9,
+              width: MediaQuery.of(context).size.width - 50,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height / 12,
+                    width: MediaQuery.of(context).size.width / 6,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        image: AssetImage("assets/img1.jpg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 23,
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height / 12,
+                    width: MediaQuery.of(context).size.width / 1.5,
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Catherine 23",
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w500),
+                            ),
+                            Container(
+                              height: MediaQuery.of(context).size.height / 60,
+                              width: MediaQuery.of(context).size.width / 5,
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.star_rate_rounded,
+                                    size: 15,
+                                    color: Colors.yellow,
+                                  ),
+                                  Text(
+                                    "  3.2 stars",
+                                    style: TextStyle(color: Colors.grey),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 70,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "Thoroughly enjoing this game.im finding it",
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 110,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "quite addictive. Some of the levels are quite...",
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 80,
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height / 9,
+              width: MediaQuery.of(context).size.width - 50,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height / 12,
+                    width: MediaQuery.of(context).size.width / 6,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        image: AssetImage("assets/img2.jpg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 23,
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height / 12,
+                    width: MediaQuery.of(context).size.width / 1.5,
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "RoboGame_22",
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w500),
+                            ),
+                            Container(
+                              height: MediaQuery.of(context).size.height / 60,
+                              width: MediaQuery.of(context).size.width / 5,
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.star_rate_rounded,
+                                    size: 15,
+                                    color: Colors.yellow,
+                                  ),
+                                  Text(
+                                    "  4.6 stars",
+                                    style: TextStyle(color: Colors.grey),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 70,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "This is really fun game! The graphics quality",
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 110,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "is amazing. i do wish there were move level...",
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  final ButtonStyle flatButtonStyle = TextButton.styleFrom(
+    primary: Colors.white,
+    minimumSize: Size(88, 36),
+    padding: EdgeInsets.symmetric(horizontal: 16.0),
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20)),
+    ),
+  );
 }
